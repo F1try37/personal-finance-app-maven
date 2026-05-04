@@ -29,7 +29,7 @@ public class TransactionRepository {
             return;
         }
         try {
-            List<Transaction> loaded = mapper.readValue(file, new TypeReference<List<Transaction>>() {
+            List<Transaction> loaded = mapper.readValue(file, new TypeReference<>() {
             });
             transactions.addAll(loaded);
         } catch (IOException e) {

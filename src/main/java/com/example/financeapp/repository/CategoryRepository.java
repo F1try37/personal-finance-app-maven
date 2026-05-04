@@ -30,7 +30,7 @@ public class CategoryRepository {
             return;
         }
         try {
-            List<Category> loaded = mapper.readValue(file, new TypeReference<List<Category>>() {
+            List<Category> loaded = mapper.readValue(file, new TypeReference<>() {
             });
             categories.addAll(loaded);
             nextId = categories.stream().mapToInt(Category::getId).max().orElse(-1) + 1;
