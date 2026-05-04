@@ -33,6 +33,7 @@ public class TransactionService {
         LocalDateTime dateTime = LocalDateTime.now();
 
         repository.getTransactions().add(new Transaction(amount,id,transactionType,category,description,dateTime));
+        repository.saveToFile();
     }
 
     public List<Transaction> getTransactions() {

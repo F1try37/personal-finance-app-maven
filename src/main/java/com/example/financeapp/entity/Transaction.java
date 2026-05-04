@@ -1,5 +1,8 @@
 package com.example.financeapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -11,7 +14,8 @@ public class Transaction {
     private String description;
     private final LocalDateTime dateTime;
 
-    public Transaction(BigDecimal amount, int id, TransactionType transactionType, Category category, String description, LocalDateTime dateTime) {
+    @JsonCreator
+    public Transaction(@JsonProperty("amount") BigDecimal amount,@JsonProperty("id") int id,@JsonProperty("transactionType") TransactionType transactionType,@JsonProperty("category") Category category,@JsonProperty("description") String description,@JsonProperty("dateTime") LocalDateTime dateTime) {
         this.amount = amount;
         this.id = id;
         this.transactionType = transactionType;
