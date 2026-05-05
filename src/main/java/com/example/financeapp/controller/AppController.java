@@ -32,6 +32,10 @@ public class AppController {
                     handler.handleAddCategory();
                     break;
 
+                case 6:
+                    handler.handleExportImport();
+                    break;
+
                 case 0:
                     return;
             }

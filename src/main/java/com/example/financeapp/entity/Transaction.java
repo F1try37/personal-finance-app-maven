@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class Transaction {
-    private final int id;
+    private int id;
     private BigDecimal amount;
     private TransactionType transactionType;
     private Category category;
@@ -26,6 +26,10 @@ public class Transaction {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public TransactionType getTransactionType() {

@@ -19,6 +19,13 @@ public class TransactionRepository {
         loadFromFile();
     }
 
+    public int getNextId() {
+        if (transactions.isEmpty()) return 0;
+        else {
+            return transactions.getLast().getId() + 1;
+        }
+    }
+
     public List<Transaction> getTransactions() {
         return transactions;
     }

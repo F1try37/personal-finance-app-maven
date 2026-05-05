@@ -29,6 +29,7 @@ public class InputHandler {
                 System.out.println("3. Фильтр");
                 System.out.println("4. Показать баланс");
                 System.out.println("5. Добавить свою категорию");
+                System.out.println("6. Экспорт/Импорт");
                 System.out.println("0. Выход");
 
                 return Integer.parseInt(scanner.nextLine());
@@ -218,5 +219,31 @@ public class InputHandler {
         System.out.println("Введите имя категории:");
         String categoryName = scanner.nextLine();
         categoryService.addCategory(categoryName);
+    }
+
+    public void handleExportImport() {
+        while (true) {
+            try {
+                System.out.println("Выберите функцию:");
+                System.out.println("1. Экспорт");
+                System.out.println("2. Импорт");
+                int input = Integer.parseInt(scanner.nextLine());
+                if (input == 1) {
+                    System.out.println("Введите имя файла, в который нужно сохранить список транзакций:");
+                    String fileName = scanner.nextLine();
+                    service.export_(fileName.trim());
+                    break;
+                }
+                else if (input == 2) {
+                    System.out.println("Введите путь к файлу:");
+                    String filePath = scanner.nextLine();
+                    service.import_(filePath.trim());
+                    break;
+                }
+                else System.out.println("Пожалуйста, введите корректное число.");
+            } catch (NumberFormatException e) {
+                System.out.println("пожалуйста, введите число");
+            }
+        }
     }
 }
