@@ -130,9 +130,9 @@ public class TransactionService {
         try {
             List<Transaction> loaded = mapper.readValue(file, new TypeReference<>() {
             });
+            int nextId = repository.getNextId();
             for (Transaction t: loaded) {
-                int nextId = repository.getNextId();
-                t.setId(nextId);
+                t.setId(nextId++);
                 repository.getTransactions().add(t);
             }
         } catch (IOException e) {
